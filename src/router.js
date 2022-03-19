@@ -1,15 +1,15 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory} from 'vue-router'
 import CreateAnnouncement from "./components/announcement/CreateAnnouncement"
 import AuthorizationComponent from "./components/auth/AuthorizationComponent"
 import RegistrationComponent from "./components/auth/RegistrationComponent"
-import NavbarComponent from "./components/header/NavbarComponent"
+import AllAnnouncements from "@/components/announcement/AllAnnouncements";
 
 export default  createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/announcement', component: CreateAnnouncement, alias: '/'},
+        { path: '/announcements', component: AllAnnouncements, alias: '/'},
+        { path: '/createAnnouncement', component: CreateAnnouncement},
         { path: '/register', component: RegistrationComponent },
-        { path: '/auth', component: AuthorizationComponent },
-        { path: '/header', component: NavbarComponent },
+        { path: '/login', component: AuthorizationComponent }
     ]
 })

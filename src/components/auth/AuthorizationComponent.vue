@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import {login} from "@/api";
 
 export default {
   name: "AuthorizationComponent",
@@ -46,12 +46,14 @@ export default {
   },
   methods: {
     login() {
-      axios.post(`http://0.0.0.0/api/login`, {
+      login({
         'email': this.email,
         'password': this.password,
       })
           .then(response => {
-            console.log(response.data)
+            this.$root.user = response.data.user;
+            localStorage.setItem('authToken', response.data.token);
+            localStorage.setItem('authTokenDate', new Date().toISOString());
           })
           .catch(e => {
             console.log(e)
@@ -87,14 +89,32 @@ h1 {
 }
 
 .SignPage {
-  margin: 60px auto;
+  margin: 80px auto;
+  max-width: 800px;
+  width:750px;
+  border:1px solid rgba(220, 162, 159);
+  background-color: rgb(224, 188, 186);
   padding: 40px 20px;
+  border-radius: 10px;
+  z-index: 32;
   position: relative;
+  text-shadow: none;
+  margin-bottom: 90px;
 }
 
 .form-group {
   display: flex;
   justify-content: space-between;
+}
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  z-index: -1;
+  overflow-x: hidden;
+  background: transparent url("../../image/image1.png") repeat;
+  background-attachment: fixed !important;
 }
 
 .form-group label {

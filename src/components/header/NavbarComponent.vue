@@ -16,13 +16,16 @@
               <a class="nav-link" href="#">Профиль</a>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/announcement">Добавить объявление</router-link>
+              <router-link class="nav-link" to="/createAnnouncement">Добавить объявление</router-link>
             </li>
             <li class="nav-item">
               <router-link class="nav-link" to="/register">Регистрация</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/auth">Вход</router-link>
+              <router-link class="nav-link" to="/login">Вход</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/announcements">Объявления</router-link>
             </li>
           </ul>
           <form class="d-flex">
@@ -37,8 +40,21 @@
 
 <script>
 
+import {getUsers} from "@/api";
+
 export default {
   name: "NavbarComponent",
+  methods: {
+    getUsers() {
+     getUsers(this.$root.token)
+          .then(response => {
+            console.log(response.data)
+          })
+          .catch(e => {
+            console.log(e)
+          })
+    }
+  }
 }
 </script>
 
@@ -56,7 +72,8 @@ header {
 .nav-link {
   font-size: 22px;
 }
-.nav-link:hover{
+
+.nav-link:hover {
   text-decoration: underline;
 }
 

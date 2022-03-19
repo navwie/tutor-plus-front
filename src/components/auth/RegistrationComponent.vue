@@ -2,7 +2,7 @@
   <div class="page">
     <div class="SignPage">
       <div class="d-flex col-12 form-signin container justify-content-center">
-        <div>
+        <div style="opacity: 1">
           <h1 class="title text-center">Зарегистрироваться</h1>
           <div class="form-group mt-4">
             <label for="Name">
@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import {register} from "@/api";
 
 export default {
   name: "RegistrationComponent",
@@ -70,7 +70,7 @@ export default {
   }),
   methods: {
     register() {
-      axios.post(`http://0.0.0.0/api/register`, {
+      register({
         'name': this.name,
         'surname': this.surname,
         'email': this.email,
@@ -125,16 +125,19 @@ export default {
 }
 </script>
 <style>
-html, body {
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Titillium+Web:ital,wght@0,400;0,600;0,700;1,600&display=swap');
-  background-color: #faf0e6;
-  height: 100vh;
-  margin: 0;
-  background-attachment: fixed;
-}
 </style>
 
 <style scoped>
+.page {
+  min-height: 100%;
+  width: 100%;
+  max-width: 100%;
+  z-index: -1;
+  overflow-x: hidden;
+  background: transparent url("../../image/image1.png") repeat;
+  background-attachment: fixed !important;
+}
+
 h3 {
   margin-top: 20px;
   letter-spacing: 3px;
@@ -154,9 +157,13 @@ h3 {
 
 .SignPage {
   margin: 40px auto;
-  max-width: 650px;
+  max-width: 800px;
+  width: 750px;
+  border: 1px solid rgba(220, 162, 159);
+  background-color: rgb(224, 188, 186);
   padding: 40px 20px;
-  border-radius: 40px;
+  border-radius: 10px;
+  z-index: 32;
   position: relative;
   text-shadow: none;
   margin-bottom: 90px;
@@ -179,7 +186,7 @@ h3 {
 
 .form-group button {
   position: relative;
-  margin-left: 180px;
+  margin-left: 150px;
   width: 350px;
   font-family: 'Montserrat', sans-serif;
   font-size: 22px;

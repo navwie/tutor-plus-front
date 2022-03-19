@@ -1,60 +1,62 @@
 <template>
-  <div class="create-announcement">
-    <div class=" d-flex  col-12  container justify-content-center align-content-center">
-      <div class="form">
-        <input type="hidden" name="_token">
-        <h1 class="h3 mb-3 fw-normal ">Добавить объявление</h1>
-        <div class="form-elements">
-          <div class="form-group mt-4">
-            <label for="title">Заголовок объявления:</label>
-            <input v-model="title" type="text" id="title" name="title"
-                   placeholder="Введите заголовок">
-          </div>
-          <div class="form-group mt-4">
-            <label for="price">Введите желаемую цену за час:</label>
-            <input v-model="price" type="number" id="price" name="price"
-                   placeholder="Цена ">
-          </div>
-          <div class="form-group mt-4">
-            <label for="duration">Длительность занятия в часах:</label>
-            <input v-model="duration" type="number" id="duration" name="duration"
-                   placeholder="Длительность занятия">
-          </div>
-          <div class="form-group mt-4">
+  <div class="page">
+    <div class="create-announcement">
+      <div class=" d-flex  col-12  container justify-content-center align-content-center">
+        <div class="form">
+          <input type="hidden" name="_token">
+          <h1 class="h3 mb-3 fw-normal ">Добавить объявление</h1>
+          <div class="form-elements">
+            <div class="form-group mt-4">
+              <label for="title">Заголовок объявления:</label>
+              <input v-model="title" type="text" id="title" name="title"
+                     placeholder="Введите заголовок">
+            </div>
+            <div class="form-group mt-4">
+              <label for="price">Введите желаемую цену за час:</label>
+              <input v-model="price" type="number" id="price" name="price"
+                     placeholder="Цена ">
+            </div>
+            <div class="form-group mt-4">
+              <label for="duration">Длительность занятия в часах:</label>
+              <input v-model="duration" type="number" id="duration" name="duration"
+                     placeholder="Длительность занятия">
+            </div>
+            <div class="form-group mt-4">
             <textarea v-model="description" id="description" placeholder="Опишите ваш уровень знания и опыт"
                       name="description">
             </textarea>
-          </div>
-          <h5>Дни и время комфортное для обучения:</h5>
-          <div class="form-group mt-4">
-            <div style="width: 700px;" id="schedule_container">
-              <div class="form-group">
-                <select v-model="dayOfWeek">
-                  <option disabled value="">Выберите день недели</option>
-                  <option>Понедельник</option>
-                  <option>Вторник</option>
-                  <option>Среда</option>
-                  <option>Четверг</option>
-                  <option>Пятница</option>
-                  <option>Субота</option>
-                  <option>Воскресенье</option>
-                </select>
-                <input v-model="time" type="time" id="time" name="time" class="time-model"
-                       min="06:00" max="24:00" required>
-                <a class="button" @click=this.addDayToSchedule>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" fill="currentColor"
-                       class="bi bi-plus-circle" viewBox="0 0 16 16">
-                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                    <path
-                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                  </svg>
-                </a>
+            </div>
+            <h5>Дни и время комфортное для обучения:</h5>
+            <div class="form-group mt-4">
+              <div style="width: 700px;" id="schedule_container">
+                <div class="form-group">
+                  <select v-model="dayOfWeek">
+                    <option disabled value="">Выберите день недели</option>
+                    <option>Понедельник</option>
+                    <option>Вторник</option>
+                    <option>Среда</option>
+                    <option>Четверг</option>
+                    <option>Пятница</option>
+                    <option>Субота</option>
+                    <option>Воскресенье</option>
+                  </select>
+                  <input v-model="time" type="time" id="time" name="time" class="time-model"
+                         min="06:00" max="24:00" required>
+                  <a class="button" @click=this.addDayToSchedule>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" fill="currentColor"
+                         class="bi bi-plus-circle" viewBox="0 0 16 16">
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                      <path
+                          d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="form-group  mt-4">
-          <button class="btn btn-primary" @click=createAnnouncement>Cоздать</button>
+          <div class="form-group  mt-4">
+            <button class="btn btn-primary" @click=storeAnnouncement>Cоздать</button>
+          </div>
         </div>
       </div>
     </div>
@@ -62,7 +64,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import {storeAnnouncement} from "@/api";
 
 export default {
   name: "CreateAnnouncement",
@@ -76,17 +78,15 @@ export default {
       time: ""
     }
   },
-
-
   methods: {
-    createAnnouncement() {
-      axios.post(`http://0.0.0.0/api/announcements`, {
+    storeAnnouncement() {
+      storeAnnouncement({
         'title': this.title,
         'description': this.description,
         'price': this.price,
         'duration': this.duration,
         'schedule': JSON.stringify({[this.dayOfWeek]: this.time})
-      })
+      }, localStorage.getItem('authToken'))
           .then(response => {
             console.log(response)
           })
@@ -119,6 +119,11 @@ export default {
       //alert(picker);
       schedule_container.appendChild(picker);
     }
+  },
+  beforeMount() {
+    if (localStorage.getItem('authToken') === null) {
+      this.$router.push('/login')
+    }
   }
 }
 </script>
@@ -129,8 +134,17 @@ export default {
 }
 
 .form {
-  margin-top: 50px;
-  width: 700px;
+  margin: 80px auto;
+  max-width: 800px;
+  width:750px;
+  border:1px solid rgba(220, 162, 159);
+  background-color: rgb(224, 188, 186);
+  padding: 40px 20px;
+  border-radius: 10px;
+  z-index: 32;
+  position: relative;
+  text-shadow: none;
+  margin-bottom: 90px;
 }
 
 .form h5 {
@@ -181,5 +195,15 @@ select {
   width: 150px;
   border-radius: 30px;
   font-size: 22px;
+}
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  z-index: -1;
+  overflow-x: hidden;
+  background: transparent url("../../image/image1.png") repeat;
+  background-attachment: fixed !important;
 }
 </style>
