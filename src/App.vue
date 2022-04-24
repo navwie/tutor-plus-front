@@ -1,15 +1,23 @@
 <template>
-  <NavbarComponent></NavbarComponent>
+  <NavbarComponentNonAuthorized v-if="token === null"></NavbarComponentNonAuthorized>
+  <NavbarComponent v-else></NavbarComponent>
   <router-view></router-view>
 </template>
 
 <script>
-import NavbarComponent from "@/components/header/NavbarComponent";
+import NavbarComponent from "@/components/header/NavbarComponentAuthorized";
+import NavbarComponentNonAuthorized from "@/components/header/NavbarComponentNonAuthorized";
 
 export default {
   name: 'App',
   components: {
     NavbarComponent,
+    NavbarComponentNonAuthorized
+  },
+  data() {
+    return {
+      token: localStorage.getItem('authToken')
+    }
   }
 }
 </script>
