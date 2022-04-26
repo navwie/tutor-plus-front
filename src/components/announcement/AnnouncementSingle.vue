@@ -2,6 +2,7 @@
   <div class="d-flex flex-row  document col-3 mt-5 project justify-content-between">
     <div class="d-flex flex-row justify-content-between">
       <div class="flex-grow-1 flex-shrink-0">
+
         <h3>{{ title }}</h3>
         <p>{{ description }}</p>
         <p>Длительность: {{ duration }}</p>

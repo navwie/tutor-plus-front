@@ -24,7 +24,7 @@ export const updateUser = (data, authToken) => axios.put(`${BASE_URL}/users`, da
 export const deleteUser = (id, authToken) => axios.delete(`${BASE_URL}/users/${id}`, {headers: AUTH_HEADERS(authToken)});
 
 
-export const getAnnouncements = (authToken) => axios.get(`${BASE_URL}/announcements`, {headers: AUTH_HEADERS(authToken)});
+export const getAnnouncements = () => axios.get(`${BASE_URL}/announcements`);
 export const getAnnouncement = (id, authToken) => axios.get(`${BASE_URL}/announcements/${id}`, {headers: AUTH_HEADERS(authToken)});
 export const storeAnnouncement = (data, authToken) => axios.post(`${BASE_URL}/announcements`, data, {headers: AUTH_HEADERS(authToken)});
 export const updateAnnouncement = (data, authToken) => axios.put(`${BASE_URL}/announcements`, data, {headers: AUTH_HEADERS(authToken)});
