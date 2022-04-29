@@ -4,10 +4,10 @@
       <div class="filters-block">
         <div class="search-block">
           <input type="text" placeholder="Search" class="search-input">
-          <a class="search-button buttons">Поиск</a>
+          <a class="search-button buttons">Пошук</a>
         </div>
 
-        <h2>Цена за час</h2>
+        <h2>Ціна за годину</h2>
         <div class="slidecontainer">
           <input type="range" min="100" max="1500" value="750" class="slider" id="myRange" list="prices">
           <datalist id="prices">
@@ -16,25 +16,25 @@
           </datalist>
         </div>
 
-        <h2>Цель занятий</h2>
+        <h2>Ціль занять</h2>
         <div class="checkboxes-block">
           <div><input type="checkbox" id="zno" class="checkboxes-el">
-            <label for="zno">Подготовка к ВНО</label>
+            <label for="zno">Підготовка до ЗНО</label>
           </div>
           <div>
             <input type="checkbox" id="school-program" class="checkboxes-el">
-            <label for="zno">Школьная программа</label>
+            <label for="zno">Шкільна програма</label>
           </div>
           <div>
             <input type="checkbox" id="international-exam" class="checkboxes-el">
-            <label for="zno">Подготовка к международным экзаменам</label>
+            <label for="zno">Підготовка до міжнародних екзаменів</label>
           </div>
         </div>
 
-        <h2>Предметы</h2>
+        <h2>Предмети</h2>
         <div class="checkboxes-block">
           <div><input type="checkbox" id="ukr-lan-and-lit" class="checkboxes-el">
-          <label for="ukr-lan-and-lit">Украинский язык и литература</label>
+          <label for="ukr-lan-and-lit">Українська мова та література</label>
         </div>
           <div>
             <input type="checkbox" id="math" class="checkboxes-el">
@@ -42,48 +42,47 @@
           </div>
           <div>
             <input type="checkbox" id="english" class="checkboxes-el">
-            <label for="english">Английский язык</label>
+            <label for="english">Англійська мова</label>
           </div>
           <div><input type="checkbox" id="physics" class="checkboxes-el">
-          <label for="physics">Физика</label>
+          <label for="physics">Фізика</label>
         </div>
           <div>
             <input type="checkbox" id="chemistry" class="checkboxes-el">
-            <label for="chemistry">Химия</label>
+            <label for="chemistry">Хімія</label>
           </div>
           <div>
             <input type="checkbox" id="german" class="checkboxes-el">
-            <label for="german">Немецкий язык</label>
+            <label for="german">Німецька мова</label>
           </div>
           <div><input type="checkbox" id="french" class="checkboxes-el">
-          <label for="french">Французский язык</label>
+          <label for="french">Французська мова</label>
         </div>
           <div>
             <input type="checkbox" id="spanish" class="checkboxes-el">
-            <label for="spanish">Испанский язык</label>
+            <label for="spanish">Іспанська мова</label>
           </div>
           <div>
             <input type="checkbox" id="history-of-ukraine" class="checkboxes-el">
-            <label for="history-of-ukraine">История Украины</label>
+            <label for="history-of-ukraine">Історія України</label>
           </div>
         </div>
-        <h2>Кого ищу</h2>
+        <h2>Кого шукаю</h2>
         <div class="radio-buttons">
           <div>
             <input type="radio" id="teacher" class="checkboxes-el">
-            <label for="teacher">Учителя</label>
+            <label for="teacher">Вчителя</label>
           </div>
           <div>
             <input type="radio" id="student" class="checkboxes-el">
             <label for="student">Студента</label>
           </div>
         </div>
-        <a class="buttons use-filters-button">Применить фильтры</a>
+        <a class="buttons use-filters-button">Застосувати фільтри</a>
     </div>
       <div class="announcements">
 
       </div>
-      <div class="announcement">
         <AnnouncementSingle
             v-for="announcement in this.announcements"
             :key="announcement.id"
@@ -93,8 +92,6 @@
             :price="announcement.price"
             :schedule=Array(JSON.parse(announcement.schedule))
         />
-        <a class="buttons">Откликнуться</a>
-      </div>
 
     </div>
 
@@ -115,8 +112,8 @@ export default {
     return {
       announcements: [
           {
-          title: "Cемашко Ирина Петровна",
-          description: "Преподаватель по математике",
+          title: "Викладач з математики шукає студентів",
+          description: "10 років досвіду роботи вчителем математики старших класів. Готую до ЗНО,",
           price: "250 грн",
           duration: "1,5 часа",
           schedule: JSON.stringify({["Понедельник"]: "18:00"})
@@ -139,7 +136,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 @import url("//db.onlinewebfonts.com/c/1a5c2d8bbd4e28d99a6efcbb9a5b378f?family=JejuMyeongjo");
 
 .page {
@@ -173,11 +170,11 @@ export default {
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  line-height: 18px;
   /* identical to box height */
   color: #34957E;
   text-decoration: none;
   padding: 3px 10px;
+  height: fit-content;
 }
 .search-block {
   margin-bottom: 19px;
@@ -258,12 +255,5 @@ datalist {
   display: flex;
   justify-content: space-between;
 }
-.announcement {
-  background: #DBB1AF;
-  border-radius: 14px;
-  height: fit-content;
-  width: 900px;
-  padding-left: 29px;
-  display: flex;
-}
+
 </style>

@@ -10,27 +10,27 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
           <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Главная</a>
+              <a class="nav-link active" aria-current="page" href="#">Головна</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Профиль</a>
+              <a class="nav-link" href="#">Профіль</a>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/createAnnouncement">Добавить объявление</router-link>
+              <router-link class="nav-link" to="/createAnnouncement">Додати оголошення</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/register">Регистрация</router-link>
+              <router-link class="nav-link" to="/register">Реєстрація</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/login">Вход</router-link>
+              <router-link class="nav-link" to="/login">Вхід</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/announcements">Объявления</router-link>
+              <router-link class="nav-link" to="/announcements">Оголошення</router-link>
             </li>
           </ul>
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Поиск</button>
+            <button class="btn btn-outline-success" type="submit">Пошук</button>
           </form>
         </div>
       </div>

@@ -3,26 +3,26 @@
     <div class="SignPage">
       <div class="d-flex col-12 form-signin container justify-content-center">
         <div style="opacity: 1">
-          <h1 class="title text-center">Зарегистрироваться</h1>
+          <h1 class="title text-center">Зареєструватися</h1>
           <div class="form-group mt-4">
             <label for="Name">
-              Имя
+              Ім'я
             </label>
             <input v-model="name" type="text" :class="'form-control ' + formErrors.name" id="name" name="name"
                    placeholder="Введіть ім'я">
           </div>
           <div class="form-group mt-4">
-            <label for="surname">Фамилия</label>
+            <label for="surname">Прізвище</label>
             <input v-model="surname" type="text" :class="'form-control ' + formErrors.surname" id="surname"
                    name="surname" placeholder="Введіть прізвище">
           </div>
           <div class="form-group mt-4">
-            <label for="email">Почта</label>
+            <label for="email">Пошта</label>
             <input v-model="email" type="email" :class="'form-control ' + formErrors.email" id="email" name="email"
                    placeholder="name@example.com">
           </div>
           <div class="form-group mt-4">
-            <label for="phone">Номер телефона</label>
+            <label for="phone">Номер телефону</label>
             <input v-model="phone" type="phone" :class="'form-control ' + formErrors.phone" id="phone" name="phone"
                    placeholder="Введіть номер телефону">
           </div>
@@ -32,14 +32,14 @@
                    name="password" placeholder="Введіть пароль">
           </div>
           <div class="form-group mt-4">
-            <label>Выберите кем вы являетесь:</label>
+            <label>Оберіть вашу роль:</label>
             <select name="role" id="role" class="form-select" v-model="role">
-              <option value="tutor" selected>Учитель</option>
-              <option value="student">Ученик</option>
+              <option value="tutor" selected>Вчитель</option>
+              <option value="student">Учень</option>
             </select>
           </div>
           <div class="form-group text-center mt-4">
-            <button @click=register class="btn btn-primary" type="submit" :disabled="active">Зарегистрироваться</button>
+            <button @click=register class="btn btn-primary" type="submit" :disabled="active">Зареєструватися</button>
           </div>
         </div>
       </div>
