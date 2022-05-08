@@ -4,7 +4,7 @@
       <div class="filters-block">
         <div class="search-block">
           <input type="text" placeholder="Search" class="search-input">
-          <a class="search-button buttons">Пошук</a>
+          <a class="search-button btn btn-outline-success">Пошук</a>
         </div>
 
         <h2>Ціна за годину</h2>
@@ -78,7 +78,7 @@
             <label for="student">Студента</label>
           </div>
         </div>
-        <a class="buttons use-filters-button">Застосувати фільтри</a>
+        <a class="btn btn-outline-success use-filters-button">Застосувати фільтри</a>
     </div>
       <div class="announcements">
 

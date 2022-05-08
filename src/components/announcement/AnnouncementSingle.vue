@@ -17,7 +17,7 @@
         </ul>
       </div>
     </div>
-    <a class="buttons answer">Відгукнутися</a>
+    <a class="btn btn-outline-success answer">Відгукнутися</a>
   </div>
 </template>
 
