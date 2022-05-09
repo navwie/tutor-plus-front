@@ -9,7 +9,7 @@
 
         <h2>Ціна за годину</h2>
         <div class="slidecontainer">
-          <input type="range" min="100" max="1500" value="750" class="slider" id="myRange" list="prices">
+          <input type="range" min="100" max="1500" value="750" class="slider" id="myRange" list="prices" name="price">
           <datalist id="prices">
             <option value="100">100 грн</option>
             <option value="1500">1500 грн</option>
@@ -70,11 +70,11 @@
         <h2>Кого шукаю</h2>
         <div class="radio-buttons">
           <div>
-            <input type="radio" id="teacher" class="checkboxes-el">
+            <input type="radio" id="teacher" class="checkboxes-el" name="who-to-search">
             <label for="teacher">Вчителя</label>
           </div>
           <div>
-            <input type="radio" id="student" class="checkboxes-el">
+            <input type="radio" id="student" class="checkboxes-el" name="who-to-search">
             <label for="student">Студента</label>
           </div>
         </div>
