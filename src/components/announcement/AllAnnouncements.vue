@@ -23,11 +23,11 @@
           </div>
           <div>
             <input type="checkbox" id="school-program" class="checkboxes-el">
-            <label for="zno">Шкільна програма</label>
+            <label for="school-program">Шкільна програма</label>
           </div>
           <div>
             <input type="checkbox" id="international-exam" class="checkboxes-el">
-            <label for="zno">Підготовка до міжнародних екзаменів</label>
+            <label for="international-exam">Підготовка до міжнародних екзаменів</label>
           </div>
         </div>
 
