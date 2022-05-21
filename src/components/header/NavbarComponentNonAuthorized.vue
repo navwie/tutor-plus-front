@@ -10,27 +10,18 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
           <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Главная</a>
+              <router-link class="nav-link" to="/announcements">Головна</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Профиль</a>
+              <router-link class="nav-link" to="/register">Реєстрація</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link" to="/createAnnouncement">Добавить объявление</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/register">Регистрация</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/login">Вход</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/announcements">Объявления</router-link>
+              <router-link class="nav-link active" to="/login">Вхід</router-link>
             </li>
           </ul>
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Поиск</button>
+            <button class="btn btn-outline-success" type="submit">Пошук</button>
           </form>
         </div>
       </div>
@@ -46,7 +37,7 @@ export default {
   name: "NavbarComponent",
   methods: {
     getUsers() {
-     getUsers(this.$root.token)
+      getUsers(this.$root.token)
           .then(response => {
             console.log(response.data)
           })

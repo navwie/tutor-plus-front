@@ -3,9 +3,9 @@
     <div class="SignPage">
       <div class="d-flex justify-content-center  signIn">
         <div>
-          <h1 class="h3  fw-normal text-center">Вход</h1>
+          <h1 class="h3  fw-normal text-center">Вхід</h1>
           <div class="form-group mt-4">
-            <label for="email">Електронна почта</label>
+            <label for="email">Електронна пошта</label>
             <input v-model="email" type="email" id="email" name="email"
                    placeholder="name@example.com">
           </div>
@@ -15,10 +15,10 @@
                    name="password" placeholder="Пароль">
           </div>
           <div class="form-group text-center">
-            <button @click=login class="btn btn-primary" type="submit" :disabled="active">Войти</button>
+            <button @click=login class="btn btn-primary" type="submit" :disabled="active">Увійти</button>
           </div>
           <div class="form-group text-center">
-            <a href="">Еще не зарегистрированы?</a>
+            <a href="">Ще не зареєстровані?</a>
           </div>
         </div>
       </div>

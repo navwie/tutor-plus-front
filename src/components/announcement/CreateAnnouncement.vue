@@ -4,41 +4,41 @@
       <div class=" d-flex  col-12  container justify-content-center align-content-center">
         <div class="form">
           <input type="hidden" name="_token">
-          <h1 class="h3 mb-3 fw-normal ">Добавить объявление</h1>
+          <h1 class="h3 mb-3 fw-normal ">Додати оголошення</h1>
           <div class="form-elements">
             <div class="form-group mt-4">
-              <label for="title">Заголовок объявления:</label>
+              <label for="title">Заголовок оголошення:</label>
               <input v-model="title" type="text" id="title" name="title"
-                     placeholder="Введите заголовок">
+                     placeholder="Введіть заголовок">
             </div>
             <div class="form-group mt-4">
-              <label for="price">Введите желаемую цену за час:</label>
+              <label for="price">Введіть бажану ціну за годину:</label>
               <input v-model="price" type="number" id="price" name="price"
-                     placeholder="Цена ">
+                     placeholder="Ціна ">
             </div>
             <div class="form-group mt-4">
-              <label for="duration">Длительность занятия в часах:</label>
+              <label for="duration">Тривалість заннятя в годинах:</label>
               <input v-model="duration" type="number" id="duration" name="duration"
-                     placeholder="Длительность занятия">
+                     placeholder="Тривалість заняття">
             </div>
             <div class="form-group mt-4">
-            <textarea v-model="description" id="description" placeholder="Опишите ваш уровень знания и опыт"
+            <textarea v-model="description" id="description" placeholder="Опишіть ваш рівень знань та досвід"
                       name="description">
             </textarea>
             </div>
-            <h5>Дни и время комфортное для обучения:</h5>
+            <h5>Дні та час комфортні для навчання:</h5>
             <div class="form-group mt-4">
               <div style="width: 700px;" id="schedule_container">
                 <div class="form-group">
                   <select v-model="dayOfWeek">
-                    <option disabled value="">Выберите день недели</option>
-                    <option>Понедельник</option>
-                    <option>Вторник</option>
-                    <option>Среда</option>
-                    <option>Четверг</option>
-                    <option>Пятница</option>
+                    <option disabled value="">Оберіть дні тижня</option>
+                    <option>Понеділок</option>
+                    <option>Вівторок</option>
+                    <option>Середа</option>
+                    <option>Четвер</option>
+                    <option>П'ятниця</option>
                     <option>Субота</option>
-                    <option>Воскресенье</option>
+                    <option>Неділя</option>
                   </select>
                   <input v-model="time" type="time" id="time" name="time" class="time-model"
                          min="06:00" max="24:00" required>
@@ -55,7 +55,7 @@
             </div>
           </div>
           <div class="form-group  mt-4">
-            <button class="btn btn-primary" @click=storeAnnouncement>Cоздать</button>
+            <button class="btn btn-primary" @click=storeAnnouncement>Cтворити</button>
           </div>
         </div>
       </div>
@@ -121,9 +121,9 @@ export default {
     }
   },
   beforeMount() {
-    if (localStorage.getItem('authToken') === null) {
-      this.$router.push('/login')
-    }
+    // if (localStorage.getItem('authToken') === null) {
+    //   this.$router.push('/login')
+    // }
   }
 }
 </script>
