@@ -81,8 +81,6 @@
         <a class="btn btn-outline-success use-filters-button">Застосувати фільтри</a>
     </div>
       <div class="announcements">
-
-      </div>
         <AnnouncementSingle
             v-for="announcement in this.announcements"
             :key="announcement.id"
@@ -92,6 +90,8 @@
             :price="announcement.price"
             :schedule=Array(JSON.parse(announcement.schedule))
         />
+      </div>
+
 
     </div>
 
@@ -112,6 +112,13 @@ export default {
     return {
       announcements: [
           {
+          title: "Викладач з математики шукає студентів",
+          description: "10 років досвіду роботи вчителем математики старших класів. Готую до ЗНО,",
+          price: "250 грн",
+          duration: "1,5 часа",
+          schedule: JSON.stringify({["Понедельник"]: "18:00"})
+        },
+        {
           title: "Викладач з математики шукає студентів",
           description: "10 років досвіду роботи вчителем математики старших класів. Готую до ЗНО,",
           price: "250 грн",

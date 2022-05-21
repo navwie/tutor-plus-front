@@ -6,9 +6,9 @@
         <h3 class="profile-info-title">Профіль</h3>
         <img src="../../image/teacher.svg" alt="" class="profile-info-img">
         <div class="grid-info">
-          <p>Ім'я:</p><input type="text" name="name" v-model="name"/>
-          <p>Прізвище:</p><input type="text" name="name" v-model="surname"/>
-          <p>E-mail:</p><input type="text" name="name" v-model="email"/>
+          <p>Ім'я:</p><input type="text" name="name" v-model="name" class="input"/>
+          <p>Прізвище:</p><input type="text" name="name" v-model="surname" class="input"/>
+          <p>E-mail:</p><input type="text" name="name" v-model="email" class="input"/>
         </div>
       </div>
 
@@ -16,43 +16,54 @@
         <h3 class="profile-info-title">Предмети і спеціалізація</h3>
         <img src="../../image/books.svg" alt="" class="profile-info-img">
         <div class="subjects">
-          <div><input type="checkbox" id="zno" class="checkboxes-el"><label for="zno">Підготовка до ЗНО</label></div>
-          <div><input type="checkbox" id="school-program" class="checkboxes-el"><label for="school-program">Шкільна програма</label></div>
+          <div><input type="checkbox" id="zno" class="checkboxes-el" :checked="true"><label for="zno">Підготовка до ЗНО</label></div>
+          <div><input type="checkbox" id="school-program" class="checkboxes-el" :checked="true"><label for="school-program">Шкільна програма</label></div>
           <div><input type="checkbox" id="international-exam" class="checkboxes-el"><label for="international-exam">Підготовка до між. екз.</label></div>
-          <select multiple>
-            <option>Українська</option>
-            <option>Німецька</option>
-            <option>Англійська</option>
-            <option>Математика</option>
-            <option>Французська</option>
-            <option>Фізика</option>
-            <option>Хімія</option>
-            <option>Іспанська</option>
-            <option>Історія України</option>
-          </select>
+
+          <Multiselect
+              v-model="subjectsSelected"
+              :options="subjectsAll"
+              searchable=true
+              mode="tags"
+              class="input margin-top"
+              placeholder="Оберіть предмети"
+              name="subject"
+          />
 
         </div>
       </div>
 
     </div>
-    <a href="" class="edit-button">Зберігти</a>
+    <a href="" class="edit-button">Зберегти</a>
   </div>
 </template>
 
 <script>
+import Multiselect from "@vueform/multiselect";
 export default {
   name: "EditTeacherProfileComponent",
+  components: {
+    Multiselect
+  },
   data() {
     return {
       name: 'Єкатерина',
       surname: 'Іванова',
-      email: 'katy.iv@gmail.com'
+      email: 'katy.iv@gmail.com',
+      subjectsSelected: null,
+      subjectsAll: null
     }
+  },
+  mounted() {
+    this.subjectsSelected = ['Хімія', 'Історія України']
+    this.subjectsAll = ['Німецька мова', 'Хімія', 'Фізика', 'Англійська мова', 'Французська мова', 'Математика', 'Іспанська мова', 'Історія України', 'Українська мова та література']
   }
 }
 </script>
 
 <style scoped>
+@import '../../../node_modules/@vueform/multiselect/themes/default.css';
+
 .info-boxes {
   display: flex;
   justify-content: space-between;
@@ -93,6 +104,10 @@ export default {
 }
 .subjects {
   font-size: 20px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
 }
 .edit-button {
   font-family: 'JejuMyeongjo';
@@ -109,12 +124,16 @@ export default {
   margin-right: auto;
   width: 130px;
   margin-top: 20px;
+  text-align: center;
 }
-input {
+.input {
   background: #D79C9C;
   border-bottom-color: #2E9067;
   border-top: 0;
   border-left: 0;
   border-right: 0;
+}
+.margin-top {
+  margin-top: 30px;
 }
 </style>

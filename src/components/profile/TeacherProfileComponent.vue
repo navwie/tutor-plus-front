@@ -24,7 +24,7 @@
     </div>
 
   </div>
-  <a href="" class="edit-button">Редагувати</a>
+  <router-link to="/edit_profile_teacher" class="edit-button">Редагувати</router-link>
 </div>
 </template>
 

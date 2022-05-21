@@ -1,6 +1,7 @@
 <template>
-  <NavbarComponentNonAuthorized v-if="token === null"></NavbarComponentNonAuthorized>
-  <NavbarComponent v-else></NavbarComponent>
+
+  <NavbarComponent></NavbarComponent>
+  <NavbarComponentNonAuthorized v-show="false"></NavbarComponentNonAuthorized>
   <router-view></router-view>
 </template>
 
@@ -28,6 +29,9 @@ export default {
   /*font-family: 'Titillium Web', sans-serif;*/
   margin: 0;
   padding: 0;
+}
+.multiselect-tags-search {
+  background: #D79C9C;
 }
 
 </style>
